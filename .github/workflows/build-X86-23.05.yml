@@ -28,6 +28,7 @@ env:
   SETTINGS_SH: scripts/init-settings.sh
   PACKAGES_SH: scripts/packages.sh
   CLASH_CORE_SH: scripts/preset-clash-core-amd64.sh
+  
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
@@ -79,8 +80,7 @@ jobs:
         chmod +x $GITHUB_WORKSPACE/$PACKAGES_SH && $GITHUB_WORKSPACE/$PACKAGES_SH
         chmod +x $GITHUB_WORKSPACE/$CLASH_CORE_SH && $GITHUB_WORKSPACE/$CLASH_CORE_SH
         ./scripts/feeds install -a && ./scripts/feeds install -a
-        rm -rf feeds/packages/lang/golang
-        git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+        chmod +x $GITHUB_WORKSPACE/$GOLANG_SH && $GITHUB_WORKSPACE/$GOLANG_SH
 
     - name: 导入补丁和配置 & 下载文件
       run: |
