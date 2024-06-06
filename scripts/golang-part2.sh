@@ -63,13 +63,13 @@ sed -i "/uci commit diag/i uci set luci.diag.route='jd.com'"  $CONFIGDIR
 
 
 # Modify system
-sed -i 's/OpenWrt/Way/g' $CONFIGDIR
+sed -i 's/ImmortalWrt/Way/g' $CONFIGDIR
 sed -i 's/UTC/CST-8/g' $CONFIGDIR
 sed -i "/uci commit/a uci commit system"  $CONFIGDIR
 sed -i "/uci commit/a uci commit luci"  $CONFIGDIR
 sed -i "/uci commit system/i uci set system.@system[0].timezone=CST-8"  $CONFIGDIR
 sed -i "/uci commit system/i uci set system.system.zonename=Asia/\Shanghai"  $CONFIGDIR
-sed -i "/uci commit luci/i uci set luci.main.lang=zh_cn"  $CONFIGDIR
+# sed -i "/uci commit luci/i uci set luci.main.lang=zh_cn"  $CONFIGDIR
 
 # UDPXY
 #sed -i "/uci commit system/a uci commit udpxy"  package/lean/default-settings/files/zzz-default-settings
