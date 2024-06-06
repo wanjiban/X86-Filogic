@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: build-X86-23.05
+name: build-X86_64-23.05
 
 permissions: write-all
 #开启写权限，防止无法上传到release
@@ -135,7 +135,7 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && steps.compile.outputs.status == 'success' && !cancelled()
       run: |
-        echo -e "✅ X86_23.05 源码版本\nBY WANJIBAN" >> release.txt
+        echo -e "✅ X86_64_23.05 Immortalwrt源码版本\nBY WANJIBAN" >> release.txt
         echo "release_tag=$(date +"X86_23.05_%Y.%m.%d")" >> $GITHUB_OUTPUT
         echo "status=success" >> $GITHUB_OUTPUT
 
