@@ -1,7 +1,5 @@
 CONFIG_TARGET_mediatek=y
 CONFIG_TARGET_mediatek_filogic=y
 CONFIG_TARGET_MULTI_PROFILE=y
-CONFIG_TARGET_DEVICE_mediatek_filogic_DEVICE_bananapi_bpi-r3=y
-CONFIG_TARGET_DEVICE_mediatek_filogic_DEVICE_bananapi_bpi-r3-mini=y
 # ADD
 CONFIG_TARGET_DEVICE_mediatek_filogic_DEVICE_asus_tuf-ax4200=y
