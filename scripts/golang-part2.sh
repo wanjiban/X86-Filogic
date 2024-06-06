@@ -12,6 +12,10 @@
 
 CONFIGDIR="package/base-files/files/bin/config_generate"
 
+# todo
+# package/base-files/files/etc/board.d/99-default_network
+# hostname
+
 # 修复 GOLANG 版本
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
