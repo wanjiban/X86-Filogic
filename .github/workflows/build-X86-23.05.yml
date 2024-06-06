@@ -135,7 +135,7 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && steps.compile.outputs.status == 'success' && !cancelled()
       run: |
-        echo -e "✅ X86_23.05 源码版本\n⁉️ 我也就用smartdns+pw+vlmcsd(pw不好用可尝试更新规则)" >> release.txt
+        echo -e "✅ X86_23.05 源码版本\nBY WANJIBAN" >> release.txt
         echo "release_tag=$(date +"X86_23.05_%Y.%m.%d")" >> $GITHUB_OUTPUT
         echo "status=success" >> $GITHUB_OUTPUT
 
