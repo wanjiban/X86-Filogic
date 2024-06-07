@@ -20,7 +20,8 @@ ADHCORE_VERSION=$(curl -sL -I https://github.com/AdguardTeam/AdGuardHome/release
 ADHCORE_URL="https://github.com/AdguardTeam/AdGuardHome/releases/download/$ADHCORE_VERSION/AdGuardHome_linux_amd64.tar.gz"
 
 # 给内核解压
-wget -qO- $ADHCORE_URL | tar xOvz > $ADHCOREDIR/AdGuardHome
+wget -q $ADHCORE_URL -O - | tar -zxf - --strip-components=2 -C $ADHCOREDIR
+find $ADHCOREDIR ! -name 'AdGuardHome' -type f -exec rm -f {} +
 
 # 给内核权限
 chmod +x $ADHCOREDIR/AdGuardHome
