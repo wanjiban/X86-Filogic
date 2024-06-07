@@ -28,7 +28,7 @@ env:
   SETTINGS_SH: scripts/init-settings.sh
   PACKAGES_SH: scripts/packages.sh
   CLASH_CORE_SH: scripts/preset-clash-core-amd64.sh
-  ADH_CORE_SH: scripts/preset-adh-core-x86_64.sh
+  ADH_CORE_SH: scripts/preset-adh-core-amd64.sh
   GOLANG_SH: scripts/golang-part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: false
