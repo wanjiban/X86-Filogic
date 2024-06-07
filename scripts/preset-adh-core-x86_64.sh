@@ -12,6 +12,7 @@
 
 
 # 预置adguardhome内核
+mkdir -p files/usr/bin
 ADHCOREDIR="files/usr/bin"
 
 # openclash 的 TUN内核
