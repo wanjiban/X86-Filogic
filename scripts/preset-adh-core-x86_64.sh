@@ -12,7 +12,7 @@
 
 
 # 预置adguardhome内核
-ADHCOREDIR="files/usr/bin/"
+ADHCOREDIR="files/usr/bin"
 
 # openclash 的 TUN内核
 ADHCORE_VERSION=$(curl -sL -I https://github.com/AdguardTeam/AdGuardHome/releases/latest | grep -oP 'releases/tag/\K.*' | tr -d '\r')
