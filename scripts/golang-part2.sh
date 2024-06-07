@@ -12,8 +12,11 @@
 
 CONFIGDIR="package/base-files/files/bin/config_generate"
 
+
+
 # todo
 # package/base-files/files/etc/board.d/99-default_network
+# package/emortal/default-settings/files/99-default-settings-chinese
 # hostname
 
 # 修复 GOLANG 版本
