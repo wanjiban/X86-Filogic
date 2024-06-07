@@ -42,6 +42,13 @@ jobs:
     - name: 检查
       uses: actions/checkout@main
 
+    - name: 检查空间使用情况
+      if: (!cancelled())
+      run: |
+        df -hT
+        echo $TARGET_ARCH
+        echo $OMR_TARGET
+      
     - name: 初始化环境
       env:
         DEBIAN_FRONTEND: noninteractive
