@@ -24,7 +24,6 @@ sed -i "/uci commit/a uci commit network"  $CONFIGDIR
 sed -i "/uci commit network/i uci set network.wan.ifname='eth0'"  $CONFIGDIR
 sed -i "/uci commit network/i uci set network.lan.ifname='eth1 eth2 eth3'"  $CONFIGDIR
 #sed -i "/uci commit network/i uci set network.lan.dns='61.139.2.69 223.5.5.5'"  $CONFIGDIR
-
 sed -i "/uci commit network/i uci set network.wan6.ifname='eth0'"  $CONFIGDIR
 #sed -i "/uci commit network/i uci set network.lan.gateway='10.1.12.1'"  $CONFIGDIR
 #sed -i "/uci commit network/i uci set network.wan.proto='none'"  $CONFIGDIR
@@ -59,7 +58,7 @@ git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/l
 sed -i '/DTS_DIR:=$(LINUX_DIR)/a\BUILD_DATE_PREFIX:=$(shell date +%Y%m%d)' include/image.mk
 sed -i '/IMG_PREFIX:=/s/^#\?/#/' include/image.mk
 sed -i '/IMG_PREFIX_VERCODE:=/a\IMG_PREFIX:=wayos-$(BUILD_DATE_PREFIX)' include/image.mk
-sed -i "/ImmortalWrt/i WayOS" include/version.mk
+# sed -i "/ImmortalWrt/i WayOS" include/version.mk
 # Set DISTRIB_REVISION
 # sed -i "s/OpenWrt /Way Build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
