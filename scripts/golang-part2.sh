@@ -24,8 +24,9 @@ sed -i "/uci commit/a uci commit network"  $CONFIGDIR
 sed -i "/uci commit network/i uci set network.wan.ifname='eth0'"  $CONFIGDIR
 sed -i "/uci commit network/i uci set network.lan.ifname='eth1 eth2 eth3'"  $CONFIGDIR
 #sed -i "/uci commit network/i uci set network.lan.dns='61.139.2.69 223.5.5.5'"  $CONFIGDIR
+
+sed -i "/uci commit network/i uci set network.wan6.ifname='eth0'"  $CONFIGDIR
 #sed -i "/uci commit network/i uci set network.lan.gateway='10.1.12.1'"  $CONFIGDIR
-#sed -i "/uci commit network/i uci set network.wan6.ifname='xeth0'"  $CONFIGDIR
 #sed -i "/uci commit network/i uci set network.wan.proto='none'"  $CONFIGDIR
 #sed -i "/uci commit network/i uci set dhcp.lan.ignore='1'"  $CONFIGDIR
 #sed -i "/uci commit network/i uci delete network.wan6"  $CONFIGDIR
@@ -34,6 +35,11 @@ sed -i "/uci commit network/i uci set network.lan.ifname='eth1 eth2 eth3'"  $CON
 #sed -i "/uci commit system/a uci commit dhcp"  $CONFIGDIR
 #sed -i "/uci commit dhcp/i uci delete dhcp.lan.ra"  $CONFIGDIR
 #sed -i "/uci commit dhcp/i uci delete dhcp.lan.dhcpv6"  $CONFIGDIR
+
+# NETFILE="package/base-files/files/etc/board.d/99-default_network"
+
+# sed -i "s/net/eth1/net/eth3/g" $NETFILE
+# sed -i "s/wan 'eth1'/wan 'eth3'/g" $NETFILE
 
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.50.5/g' $CONFIGDIR
