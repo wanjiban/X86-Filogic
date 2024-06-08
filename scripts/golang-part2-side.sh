@@ -15,6 +15,9 @@
 # package/base-files/files/etc/uci-defaults
 # package/emortal/default-settings/files/99-default-settings-chinese
 # hostname
+# COMMON 文件修改
+
+CONFIGDIR="package/base-files/files/bin/config_generate"
 
 #
 # SIDE
@@ -22,11 +25,12 @@
 
 # LAN LAN LAN LAN 
 sed -i "/uci commit/a uci commit network"  $CONFIGDIR
+sed -i "/uci commit network/i uci set network.lan.ipaddr='10.1.12.222'"  $CONFIGDIR
 sed -i "/uci commit network/i uci set network.lan.ifname='eth0 eth1 eth2 eth3'"  $CONFIGDIR
 sed -i "/uci commit network/i uci set network.lan.dns='61.139.2.69 223.5.5.5'"  $CONFIGDIR
 sed -i "/uci commit network/i uci set network.lan.gateway='10.1.12.1'"  $CONFIGDIR
-#sed -i "/uci commit network/i uci set network.wan.ifname='xeth0'"  $CONFIGDIR
-#sed -i "/uci commit network/i uci set network.wan6.ifname='xeth0'"  $CONFIGDIR
+sed -i "/uci commit network/i uci set network.wan.ifname='xeth0'"  $CONFIGDIR
+sed -i "/uci commit network/i uci set network.wan6.ifname='br-lan'"  $CONFIGDIR
 #sed -i "/uci commit network/i uci set network.wan.proto='none'"  $CONFIGDIR
 sed -i "/uci commit network/i uci set dhcp.lan.ignore='1'"  $CONFIGDIR
 #sed -i "/uci commit network/i uci delete network.wan6"  $CONFIGDIR
@@ -62,9 +66,7 @@ sed -i 's/192.168.1.1/10.1.12.222/g' $CONFIGDIR
 
 
 
-# COMMON 文件修改
 
-CONFIGDIR="package/base-files/files/bin/config_generate"
 
 # 修复 GOLANG 版本
 rm -rf feeds/packages/lang/golang
