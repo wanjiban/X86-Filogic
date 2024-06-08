@@ -99,10 +99,7 @@ jobs:
     
     - name: 检查空间使用情况
       if: (!cancelled())
-      run: | 
-        df -hT
-        echo $TARGET_ARCH
-        echo $OMR_TARGET
+      run: df -hT
 
     - name: 编译固件中
       id: compile
@@ -147,8 +144,8 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && steps.compile.outputs.status == 'success' && !cancelled()
       run: |
-        echo -e "✅ X86_64_23.05-SIDE Immortalwrt源码版本\nBY WANJIBAN" >> release.txt
-        echo "release_tag=$(date +"X86_64_23.05_SIDE_%Y.%m.%d")" >> $GITHUB_OUTPUT
+        echo -e "✅ X86_64_MASTER-SIDE Immortalwrt源码版本\nBY WANJIBAN" >> release.txt
+        echo "release_tag=$(date +"X86_64_MASTER_SIDE_%Y.%m.%d")" >> $GITHUB_OUTPUT
         echo "status=success" >> $GITHUB_OUTPUT
 
     - name: 上传固件发布
