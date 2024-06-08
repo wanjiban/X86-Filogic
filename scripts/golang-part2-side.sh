@@ -12,6 +12,7 @@
 
 # todo
 # package/base-files/files/etc/board.d/99-default_network
+# package/base-files/files/etc/uci-defaults
 # package/emortal/default-settings/files/99-default-settings-chinese
 # hostname
 
@@ -73,7 +74,7 @@ git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/l
 sed -i '/DTS_DIR:=$(LINUX_DIR)/a\BUILD_DATE_PREFIX:=$(shell date +%Y%m%d)' include/image.mk
 sed -i '/IMG_PREFIX:=/s/^#\?/#/' include/image.mk
 sed -i '/IMG_PREFIX_VERCODE:=/a\IMG_PREFIX:=wayos-$(BUILD_DATE_PREFIX)' include/image.mk
-sed -i "/ImmortalWrt/i WayOS" include/version.mk
+# sed -i "/ImmortalWrt/i WayOS" include/version.mk
 # Set DISTRIB_REVISION
 # sed -i "s/OpenWrt /Way Build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
