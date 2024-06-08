@@ -51,7 +51,7 @@ sed -i "/uci commit system/a uci commit dhcp"  $CONFIGDIR
 sed -i 's/192.168.1.1/10.1.12.222/g' $CONFIGDIR
 
 # DIAG
-sed -i "/uci commit/a uci commit diag"  $CONFIGDIR
+sed -i "/uci commit/a uci commit luci.diag"  $CONFIGDIR
 sed -i "/uci commit diag/i uci set luci.diag.dns='jd.com'"  $CONFIGDIR
 sed -i "/uci commit diag/i uci set luci.diag.ping='jd.com'"  $CONFIGDIR
 sed -i "/uci commit diag/i uci set luci.diag.route='jd.com'"  $CONFIGDIR
