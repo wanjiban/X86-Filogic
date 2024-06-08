@@ -144,8 +144,8 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && steps.compile.outputs.status == 'success' && !cancelled()
       run: |
-        echo -e "✅ X86_64_MASTER-SIDE Immortalwrt源码版本\nBY WANJIBAN" >> release.txt
-        echo "release_tag=$(date +"X86_64_MASTER_SIDE_%Y.%m.%d")" >> $GITHUB_OUTPUT
+        echo -e "✅ X86_64_MASTER-SIDE K6 Immortalwrt源码版本\nBY WANJIBAN" >> release.txt
+        echo "release_tag=$(date +"X86_64_MASTER_SIDE_K6_%Y.%m.%d")" >> $GITHUB_OUTPUT
         echo "status=success" >> $GITHUB_OUTPUT
 
     - name: 上传固件发布
