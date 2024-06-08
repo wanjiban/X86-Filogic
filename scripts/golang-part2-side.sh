@@ -46,7 +46,22 @@ sed -i "/uci commit system/a uci commit dhcp"  $CONFIGDIR
 sed -i 's/192.168.1.1/10.1.12.222/g' $CONFIGDIR
 
 
-# COMMON
+# NEW
+# 默认执行的UCI命令
+#cat >files/etc/uci-defaults/13_wayos << EOF
+##!/bin/sh
+#uci set network.lan=interface
+#uci set network.lan.device='br-lan'
+#uci set network.lan.proto='static'
+#uci set network.lan.ipaddr='10.10.10.1'
+#uci set network.lan.netmask='255.255.255.0'
+#uci set network.lan.ip6assign='60'
+#uci commit
+#EOF
+
+
+
+# COMMON 文件修改
 
 CONFIGDIR="package/base-files/files/bin/config_generate"
 
@@ -155,16 +170,6 @@ sed -i '/option Interface/s/^#\?/#/'  package/network/services/dropbear/files/dr
 #sed -i 's#mirrors.cloud.tencent.com/lede#mirrors.tuna.tsinghua.edu.cn/openwrt#g' package/lean/default-settings/files/zzz-default-settings
 #sed -i 's/x86_64/x86\/64/' /etc/opkg/distfeeds.conf
 
-# 默认执行的UCI命令，可以修改下面的
-#cat >files/etc/uci-defaults/change_ip << EOF
-#uci set network.lan=interface
-#uci set network.lan.device='br-lan'
-#uci set network.lan.proto='static'
-#uci set network.lan.ipaddr='10.10.10.1'
-#uci set network.lan.netmask='255.255.255.0'
-#uci set network.lan.ip6assign='60'
-#uci commit
-#EOF
 
 
 # 修改DHCP
