@@ -32,11 +32,11 @@ sed -i "/uci commit network/i uci set network.lan.gateway='10.1.12.1'"  $CONFIGD
 sed -i "/uci commit network/i uci set network.wan.ifname='xeth0'"  $CONFIGDIR
 sed -i "/uci commit network/i uci set network.wan6.ifname='br-lan'"  $CONFIGDIR
 #sed -i "/uci commit network/i uci set network.wan.proto='none'"  $CONFIGDIR
+sed -i "/uci commit network/a uci commit dhcp"  $CONFIGDIR
 sed -i "/uci commit network/i uci set dhcp.lan.ignore='1'"  $CONFIGDIR
 #sed -i "/uci commit network/i uci delete network.wan6"  $CONFIGDIR
 #sed -i "/uci commit network/i uci delete network.lan.ip6assign"  $CONFIGDIR
 #sed -i "/uci commit network/i uci delete network.globals.ula_prefix"  $CONFIGDIR
-sed -i "/uci commit system/a uci commit dhcp"  $CONFIGDIR
 #sed -i "/uci commit dhcp/i uci delete dhcp.lan.ra"  $CONFIGDIR
 #sed -i "/uci commit dhcp/i uci delete dhcp.lan.dhcpv6"  $CONFIGDIR
 
@@ -81,10 +81,10 @@ sed -i '/IMG_PREFIX_VERCODE:=/a\IMG_PREFIX:=wayos-$(BUILD_DATE_PREFIX)' include/
 # sed -i "s/OpenWrt /Way Build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
 # DIAG
-sed -i "/uci commit/a uci commit luci.diag"  $CONFIGDIR
-sed -i "/uci commit diag/i uci set luci.diag.dns='jd.com'"  $CONFIGDIR
-sed -i "/uci commit diag/i uci set luci.diag.ping='jd.com'"  $CONFIGDIR
-sed -i "/uci commit diag/i uci set luci.diag.route='jd.com'"  $CONFIGDIR
+sed -i "/uci commit dhcp/a uci commit luci.diag"  $CONFIGDIR
+sed -i "/uci commit luci.diag/i uci set luci.diag.dns='jd.com'"  $CONFIGDIR
+sed -i "/uci commit luci.diag/i uci set luci.diag.ping='jd.com'"  $CONFIGDIR
+sed -i "/uci commit luci.diag/i uci set luci.diag.route='jd.com'"  $CONFIGDIR
 
 # 隐藏首页显示用户名(by:kokang)
 #sed -i 's/name="luci_username" value="<%=duser%>"/name="luci_username"/g' feeds/luci/modules/luci-base/luasrc/view/sysauth.htm
@@ -96,8 +96,8 @@ sed -i "/uci commit diag/i uci set luci.diag.route='jd.com'"  $CONFIGDIR
 # Modify system
 sed -i 's/ImmortalWrt/Way/g' $CONFIGDIR
 sed -i 's/UTC/CST-8/g' $CONFIGDIR
-sed -i "/uci commit/a uci commit system"  $CONFIGDIR
-sed -i "/uci commit/a uci commit luci"  $CONFIGDIR
+sed -i "/uci commit luci.diag/a uci commit system"  $CONFIGDIR
+sed -i "/uci commit system/a uci commit luci"  $CONFIGDIR
 sed -i "/uci commit system/i uci set system.@system[0].timezone=CST-8"  $CONFIGDIR
 sed -i "/uci commit system/i uci set system.system.zonename=Asia/\Shanghai"  $CONFIGDIR
 # sed -i "/uci commit luci/i uci set luci.main.lang=zh_cn"  $CONFIGDIR
@@ -114,7 +114,7 @@ sed -i "/uci commit ttyd/i uci set ttyd.@ttyd[0].interface='@lan @wan'"  $CONFIG
 
 
 # Firewall
-sed -i "/uci commit/a uci commit firewall"  $CONFIGDIR
+sed -i "/uci commit ttyd/a uci commit firewall"  $CONFIGDIR
 sed -i "/uci commit firewall/i uci set firewall.web=rule"  $CONFIGDIR
 sed -i "/uci commit firewall/i uci set firewall.web.target='ACCEPT'"  $CONFIGDIR
 sed -i "/uci commit firewall/i uci set firewall.web.src='wan'"  $CONFIGDIR
