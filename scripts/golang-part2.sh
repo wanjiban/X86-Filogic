@@ -63,7 +63,7 @@ sed -i '/IMG_PREFIX_VERCODE:=/a\IMG_PREFIX:=wayos-$(BUILD_DATE_PREFIX)' include/
 # sed -i "s/OpenWrt /Way Build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
 # DIAG
-sed -i "/uci commit/a uci commit luci.diag"  $CONFIGDIR
+sed -i "/uci commit network/a uci commit luci.diag"  $CONFIGDIR
 sed -i "/uci commit diag/i uci set luci.diag.dns='jd.com'"  $CONFIGDIR
 sed -i "/uci commit diag/i uci set luci.diag.ping='jd.com'"  $CONFIGDIR
 sed -i "/uci commit diag/i uci set luci.diag.route='jd.com'"  $CONFIGDIR
@@ -78,8 +78,8 @@ sed -i "/uci commit diag/i uci set luci.diag.route='jd.com'"  $CONFIGDIR
 # Modify system
 sed -i 's/ImmortalWrt/Way/g' $CONFIGDIR
 sed -i 's/UTC/CST-8/g' $CONFIGDIR
-sed -i "/uci commit/a uci commit system"  $CONFIGDIR
-sed -i "/uci commit/a uci commit luci"  $CONFIGDIR
+sed -i "/uci commit luci.diag/a uci commit system"  $CONFIGDIR
+sed -i "/uci commit system/a uci commit luci"  $CONFIGDIR
 sed -i "/uci commit system/i uci set system.@system[0].timezone=CST-8"  $CONFIGDIR
 sed -i "/uci commit system/i uci set system.system.zonename=Asia/\Shanghai"  $CONFIGDIR
 # sed -i "/uci commit luci/i uci set luci.main.lang=zh_cn"  $CONFIGDIR
@@ -90,13 +90,13 @@ sed -i "/uci commit system/i uci set system.system.zonename=Asia/\Shanghai"  $CO
 
 
 # TTYD AS ROOT AND OPENPORT
-sed -i "/uci commit system/a uci commit ttyd"  $CONFIGDIR
+sed -i "/uci commit luci/a uci commit ttyd"  $CONFIGDIR
 #sed -i "/uci commit ttyd/i uci set ttyd.@ttyd[0].command='/bin/login -f root'"  $CONFIGDIR
 sed -i "/uci commit ttyd/i uci set ttyd.@ttyd[0].interface='@lan @wan'"  $CONFIGDIR
 
 
 # Firewall
-sed -i "/uci commit/a uci commit firewall"  $CONFIGDIR
+sed -i "/uci commit ttyd/a uci commit firewall"  $CONFIGDIR
 sed -i "/uci commit firewall/i uci set firewall.web=rule"  $CONFIGDIR
 sed -i "/uci commit firewall/i uci set firewall.web.target='ACCEPT'"  $CONFIGDIR
 sed -i "/uci commit firewall/i uci set firewall.web.src='wan'"  $CONFIGDIR
