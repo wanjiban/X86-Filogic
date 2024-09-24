@@ -55,8 +55,8 @@ chmod +x files/etc/openclash/core/clash*
 # GEOIP_URL="https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat"
 # GEOSITE_URL="https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat"
 
-GEOIP_URL=https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat
-GEOSITE_URL=https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
+GEOIP_URL=https://github.com/wanjiban/v2ray-rules-dat/releases/latest/download/geoip.dat
+GEOSITE_URL=https://github.com/wanjiban/v2ray-rules-dat/releases/latest/download/geosite.dat
 
 wget -qO- $GEOIP_URL > files/etc/openclash/GeoIP.dat
 wget -qO- $GEOSITE_URL > files/etc/openclash/GeoSite.dat
@@ -66,7 +66,7 @@ wget -qO- $GEOSITE_URL > files/etc/openclash/GeoSite.dat
 # COUNTRY_LITE_URL=https://raw.githubusercontent.com/alecthw/mmdb_china_ip_list/release/lite/Country.mmdb
 # COUNTRY_FULL_URL=https://raw.githubusercontent.com/alecthw/mmdb_china_ip_list/release/Country.mmdb
 
-COUNTRY_FULL_URL=https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country.mmdb
+COUNTRY_FULL_URL=https://github.com/wanjiban/geoip/releases/latest/download/Country.mmdb
 
 # wget -qO- $COUNTRY_LITE_URL > files/etc/openclash/Country.mmdb
 wget -qO- $COUNTRY_FULL_URL > files/etc/openclash/Country.mmdb
