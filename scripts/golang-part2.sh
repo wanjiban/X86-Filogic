@@ -52,7 +52,7 @@ CONFIGDIR="package/base-files/files/bin/config_generate"
 
 # 修复 GOLANG 版本
 rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/lang/golang
 
 # 修改生成的固件名称include/image.mk
 sed -i '/DTS_DIR:=$(LINUX_DIR)/a\BUILD_DATE_PREFIX:=$(shell date +%Y%m%d)' include/image.mk
